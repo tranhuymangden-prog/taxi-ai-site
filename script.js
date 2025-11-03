@@ -1,4 +1,4 @@
-// Taxi AI – tương tác cơ bản (ước tính cước) + đăng ký service worker (PWA nhẹ)
+// === TƯƠNG TÁC ƯỚC TÍNH CƯỚC ===
 document.addEventListener("DOMContentLoaded", () => {
   const estBtn = document.querySelector("[data-action='estimate']");
   const out = document.querySelector("#estimate-output");
@@ -14,9 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Đăng ký service worker nếu có
+// === ĐĂNG KÝ SERVICE WORKER CHO GH PAGES (SUBPATH) ===
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch(console.error);
+    const BASE = "/taxi-ai-site/";        // subpath repo của bạn
+    navigator.serviceWorker
+      .register("sw.js", { scope: BASE })  // KHÔNG dùng "/sw.js"
+      .catch(console.error);
   });
 }
