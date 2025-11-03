@@ -10,6 +10,12 @@
   <link rel="icon" href="favicon.ico" />
   <link rel="manifest" href="manifest.webmanifest" />
 
+  <!-- iOS (Safari) PWA -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Taxi AI" />
+
   <!-- Open Graph (đường dẫn tuyệt đối đầy đủ) -->
   <meta property="og:title" content="Taxi AI – Đặt xe thông minh" />
   <meta property="og:description" content="Đặt xe, ước tính cước, theo dõi vị trí theo thời gian thực." />
@@ -21,23 +27,22 @@
   <meta name="theme-color" content="#0ea5e9" />
 </head>
 <body>
- <main style="font-family:system-ui;max-width:960px;margin:2rem auto;padding:1rem">
-  <h1>Taxi AI – Đặt xe thông minh</h1>
-  <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
+  <main style="font-family:system-ui;max-width:960px;margin:2rem auto;padding:1rem">
+    <h1>Taxi AI – Đặt xe thông minh</h1>
+    <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
 
-  <div style="margin:1rem 0">
-    <label>Khoảng cách (km):
-      <input id="distance-km" type="number" min="0" step="0.1" value="3" />
-    </label>
-    <button data-action="estimate">Ước tính cước</button>
+    <div style="margin:1rem 0">
+      <label>Khoảng cách (km):
+        <input id="distance-km" type="number" min="0" step="0.1" value="3" />
+      </label>
+      <button data-action="estimate">Ước tính cước</button>
 
-    <!-- Nút Cài đặt ứng dụng (PWA) -->
-    <button id="btn-install" style="margin-left:8px; display:none">Cài đặt ứng dụng</button>
+      <!-- Nút Cài đặt ứng dụng (PWA) -->
+      <button id="btn-install" style="margin-left:8px; display:none">Cài đặt ứng dụng</button>
 
-    <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
-  </div>
-</main>
-
+      <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
+    </div>
+  </main>
 
   <noscript>Trang cần bật JavaScript để hoạt động đầy đủ.</noscript>
 
