@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taxi AI – Đặt xe thông minh</title>
+  <meta name="description" content="Trang web Taxi AI: đặt xe, ước tính cước, theo dõi vị trí theo thời gian thực." />
+  <link rel="icon" href="favicon.ico" />
+  <!-- DÙNG ĐƯỜNG DẪN TƯƠNG ĐỐI khi chạy Live Server -->
+  <link rel="manifest" href="manifest.webmanifest" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Taxi AI – Đặt xe thông minh" />
+  <meta property="og:description" content="Đặt xe, ước tính cước, theo dõi vị trí theo thời gian thực." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://<tai-khoan>.github.io/<ten-repo>/" />
+  <meta property="og:image" content="https://<tai-khoan>.github.io/<ten-repo>/og-image.png" />
+
+  <meta name="theme-color" content="#0ea5e9" />
+</head>
+<body>
+  <main style="font-family:system-ui;max-width:960px;margin:2rem auto;padding:1rem">
+    <h1>Taxi AI – Đặt xe thông minh</h1>
+    <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
+    <div style="margin:1rem 0">
+      <label>Khoảng cách (km): <input id="distance-km" type="number" min="0" step="0.1" value="3" /></label>
+      <button data-action="estimate">Ước tính cước</button>
+      <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
+    </div>
+  </main>
+
+  <noscript>Trang cần bật JavaScript để hoạt động đầy đủ.</noscript>
+  <!-- LƯU Ý: KHÔNG dùng /script.js; dùng đường dẫn tương đối -->
+  <script src="script.js" defer></script>
+</body>
+</html>

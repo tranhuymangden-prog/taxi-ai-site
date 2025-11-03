@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://<tai-khoan>.github.io/<ten-repo>/sitemap.xml

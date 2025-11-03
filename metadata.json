@@ -1,0 +1,7 @@
+{
+  "name": "Trình tạo trang web Taxi AI",
+  "description": "Một ứng dụng web tương tác giúp chủ sở hữu dịch vụ taxi xây dựng một trang web đơn giản bằng cách trả lời các câu hỏi và sử dụng AI để tạo nội dung.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
