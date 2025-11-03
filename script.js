@@ -1,47 +1,39 @@
-// === TƯƠNG TÁC ƯỚC TÍNH CƯỚC ===
-document.addEventListener("DOMContentLoaded", () => {
-  const estBtn = document.querySelector("[data-action='estimate']");
-  const out = document.querySelector("#estimate-output");
+// Tính cước đơn giản: 15.000đ/km + 0đ mở cửa
+function formatVND(n) {
+  return n.toLocaleString("vi-VN") + " đồng";
+}
 
-  if (estBtn && out) {
-    estBtn.addEventListener("click", () => {
-      const base = 15000; // giá mở cửa
-      const km = Number(document.querySelector("#distance-km")?.value || 3);
-      const perKm = 12000;
-      const total = base + km * perKm;
-      out.textContent = new Intl.NumberFormat("vi-VN").format(total) + " đồng";
-    });
-  }
-});
-// === NÚT CÀI ĐẶT ỨNG DỤNG (PWA) ===
-let deferredPrompt;
+function estimate() {
+  const km = parseFloat(document.getElementById("distance-km").value || "0");
+  const fare = Math.max(0, km) * 15000;
+  document.getElementById("estimate-output").textContent = formatVND(Math.round(fare));
+}
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  // Chặn prompt mặc định để tự hiện bằng nút của chúng ta
-  e.preventDefault();
-  deferredPrompt = e;
-
-  const btn = document.getElementById("btn-install");
-  if (btn) btn.style.display = "inline-block";
+document.addEventListener("click", (e) => {
+  if (e.target && e.target.matches("[data-action='estimate']")) estimate();
 });
 
-document.getElementById("btn-install")?.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice; // accepted | dismissed
-  deferredPrompt = null;
+window.addEventListener("DOMContentLoaded", estimate);
 
-  // Ẩn nút sau khi đã hiện prompt
-  const btn = document.getElementById("btn-install");
-  if (btn) btn.style.display = "none";
-});
-
-// === ĐĂNG KÝ SERVICE WORKER CHO GH PAGES (SUBPATH) ===
+// Đăng ký Service Worker (an toàn cho /taxi-ai-site/ và cho domain riêng)
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    const BASE = "/taxi-ai-site/";        // subpath repo của bạn
-    navigator.serviceWorker
-      .register("sw.js", { scope: BASE })  // KHÔNG dùng "/sw.js"
-      .catch(console.error);
+    navigator.serviceWorker.register("sw.js", { scope: "/" }).catch(console.error);
   });
 }
+
+// Nút cài PWA
+let deferredPrompt;
+const btnInstall = document.getElementById("btn-install");
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if (btnInstall) btnInstall.style.display = "inline-block";
+});
+btnInstall?.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  btnInstall.style.display = "none";
+});

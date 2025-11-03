@@ -1,9 +1,9 @@
 {
   "name": "Taxi AI",
   "short_name": "TaxiAI",
-  "id": "/taxi-ai-site/",
-  "scope": "/taxi-ai-site/",
-  "start_url": "/taxi-ai-site/",
+  "id": "/",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0ea5e9",

@@ -1,7 +1,10 @@
-// sw.js — phiên bản an toàn cho GitHub Pages (subpath) & custom domain
+// sw.js — Safe for both GitHub Pages subpath and custom domain
 const CACHE_NAME = "taxi-ai-v2";
-const BASE = location.pathname.replace(/\/[^/]*$/, "/"); 
-// VD trên GH Pages: /taxi-ai-site/  ; khi dùng domain riêng: "/"
+
+// Tự tính thư mục gốc (BASE) của site
+// VD: https://.../taxi-ai-site/index.html -> BASE=/taxi-ai-site/
+//     https://taximangden.eu.org/index.html -> BASE=/
+const BASE = location.pathname.replace(/\/[^/]*$/, "/");
 
 const URLS = [
   BASE,
