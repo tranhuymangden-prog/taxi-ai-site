@@ -21,17 +21,23 @@
   <meta name="theme-color" content="#0ea5e9" />
 </head>
 <body>
-  <main style="font-family:system-ui;max-width:960px;margin:2rem auto;padding:1rem">
-    <h1>Taxi AI – Đặt xe thông minh</h1>
-    <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
-    <div style="margin:1rem 0">
-      <label>Khoảng cách (km):
-        <input id="distance-km" type="number" min="0" step="0.1" value="3" />
-      </label>
-      <button data-action="estimate">Ước tính cước</button>
-      <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
-    </div>
-  </main>
+ <main style="font-family:system-ui;max-width:960px;margin:2rem auto;padding:1rem">
+  <h1>Taxi AI – Đặt xe thông minh</h1>
+  <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
+
+  <div style="margin:1rem 0">
+    <label>Khoảng cách (km):
+      <input id="distance-km" type="number" min="0" step="0.1" value="3" />
+    </label>
+    <button data-action="estimate">Ước tính cước</button>
+
+    <!-- Nút Cài đặt ứng dụng (PWA) -->
+    <button id="btn-install" style="margin-left:8px; display:none">Cài đặt ứng dụng</button>
+
+    <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
+  </div>
+</main>
+
 
   <noscript>Trang cần bật JavaScript để hoạt động đầy đủ.</noscript>
 

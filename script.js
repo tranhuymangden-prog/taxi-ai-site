@@ -13,6 +13,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// === NÚT CÀI ĐẶT ỨNG DỤNG (PWA) ===
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  // Chặn prompt mặc định để tự hiện bằng nút của chúng ta
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const btn = document.getElementById("btn-install");
+  if (btn) btn.style.display = "inline-block";
+});
+
+document.getElementById("btn-install")?.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice; // accepted | dismissed
+  deferredPrompt = null;
+
+  // Ẩn nút sau khi đã hiện prompt
+  const btn = document.getElementById("btn-install");
+  if (btn) btn.style.display = "none";
+});
 
 // === ĐĂNG KÝ SERVICE WORKER CHO GH PAGES (SUBPATH) ===
 if ("serviceWorker" in navigator) {
