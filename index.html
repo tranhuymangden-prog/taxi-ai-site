@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Taxi AI – Đặt xe thông minh</title>
   <meta name="description" content="Trang web Taxi AI: đặt xe, ước tính cước, theo dõi vị trí theo thời gian thực." />
+
+  <!-- ĐƯỜNG DẪN TƯƠNG ĐỐI (không có / đầu) ĐỂ HỢP VỚI /taxi-ai-site/ -->
   <link rel="icon" href="favicon.ico" />
-  <!-- DÙNG ĐƯỜNG DẪN TƯƠNG ĐỐI khi chạy Live Server -->
   <link rel="manifest" href="manifest.webmanifest" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (đường dẫn tuyệt đối đầy đủ) -->
   <meta property="og:title" content="Taxi AI – Đặt xe thông minh" />
   <meta property="og:description" content="Đặt xe, ước tính cước, theo dõi vị trí theo thời gian thực." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tranhuymangden-prog.github.io/taxi-ai-site/" />
-<!-- Nếu bạn có ảnh chia sẻ mạng xã hội, giữ dòng dưới; chưa có thì bỏ đi -->
-<meta property="og:image" content="https://tranhuymangden-prog.github.io/taxi-ai-site/og-image.png" />
-
+  <!-- Nếu CHƯA có og-image.png ở gốc repo, có thể xóa dòng dưới -->
+  <meta property="og:image" content="https://tranhuymangden-prog.github.io/taxi-ai-site/og-image.png" />
 
   <meta name="theme-color" content="#0ea5e9" />
 </head>
@@ -25,14 +25,17 @@
     <h1>Taxi AI – Đặt xe thông minh</h1>
     <p>Demo ước tính cước. Nhập khoảng cách và bấm nút.</p>
     <div style="margin:1rem 0">
-      <label>Khoảng cách (km): <input id="distance-km" type="number" min="0" step="0.1" value="3" /></label>
+      <label>Khoảng cách (km):
+        <input id="distance-km" type="number" min="0" step="0.1" value="3" />
+      </label>
       <button data-action="estimate">Ước tính cước</button>
       <div id="estimate-output" style="margin-top:0.5rem;font-weight:600"></div>
     </div>
   </main>
 
   <noscript>Trang cần bật JavaScript để hoạt động đầy đủ.</noscript>
-  <!-- LƯU Ý: KHÔNG dùng /script.js; dùng đường dẫn tương đối -->
+
+  <!-- ĐƯỜNG DẪN TƯƠNG ĐỐI -->
   <script src="script.js" defer></script>
 </body>
 </html>
